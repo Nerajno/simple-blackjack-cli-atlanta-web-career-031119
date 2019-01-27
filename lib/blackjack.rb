@@ -9,6 +9,7 @@ end
 
 def display_card_total(initial_round)
   # code #display_card_total here
+  initial_round = initial_round
  puts "Your cards add up to #{initial_round}"
 end
 
