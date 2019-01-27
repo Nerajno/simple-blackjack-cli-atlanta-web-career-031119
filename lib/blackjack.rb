@@ -37,7 +37,7 @@ def initial_round()
   new_sum = deal_card  + deal_card
   puts "Your cards add up to #{new_sum}"
   return new_sum
-  display_card_total(new_sum)
+  # display_card_total(new_sum)
   # puts"#{rex}"
 end
 
