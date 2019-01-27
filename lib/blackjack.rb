@@ -34,11 +34,10 @@ end
 
 def initial_round()
   # code #initial_round here
-  new_sum = deal_card
-  new_sum += deal_card
-  puts /Your cards add up to /#{}{new_sum
+  new_sum = deal_card  + deal_card
+  puts "Your cards add up to #{new_sum}"
   return new_sum
-  rex = display_card_total()
+  display_card_total(new_sum)
   # puts"#{rex}"
 end
 
@@ -46,7 +45,16 @@ def hit?(display_card_total)
   # code hit? here
   prompt_user
   rtnd_inpt = get_user_input
-  # if rtnd_inpt == "h"
+  until rtnd_inpt == "h" ||rtnd_inpt == "s"
+    invalid_command
+    rtnd_inpt = get_user_input
+  end
+  if rtnd_inpt =="h"
+    display_card_total +=deal_card
+  elsif rtnd_inpt =="s"
+    display_card_total
+  end
+
   #   deal_card
   # elsif rtnd_inpt !="s" || rtnd_inpt !="h"
   #    invalid_command
@@ -70,6 +78,8 @@ def runner
   initial_round
   hit?
   display_card_total
+  until display_card_total > 21
+    display_card_total = hit?(display_card_total)
+  end
 end_game
-
 end
